@@ -3,10 +3,14 @@ import React from "react";
 class SearchBar extends React.Component {
   state = { term: "" };
 
-onFormSubmit(event) {
+onFormSubmit = event => {
     event.preventDefault();
+    this.props.onSubmit(this.state.term)
+    /* When using 'this' keyword, find where the function in question is being called, to determine what 'this' is referring to. Find what is to the left of the dot when function is called. Just replace 'this' keyword with what is to the left. That will be what 'this' is referencing.  */
     console.log(this.state.term);
     
+
+    /* To bind 'this' keyword, use arrow function. */
 }
 
   render() {
@@ -20,7 +24,7 @@ onFormSubmit(event) {
             <input
              type="text" 
              value={this.state.term} 
-             onChange={e => this.setState({ term: e.target.value.toUpperCase() })} />
+             onChange={e => this.setState({ term: e.target.value })} />
           </div>
         </form>
       </div>
