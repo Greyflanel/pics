@@ -5,7 +5,7 @@ constructor(props) {
 super(props);
 
 this.state = ({ spans: 0 });
-
+/* Anytime we want to reach into the DOM and interact with some invidual element. We create a ref inside the constructor, an then we wire it up to an individual element by passing it as a ref property. Then later on, we can access that ref and get a handle on the actual DOM node. */
 this.imageRef = React.createRef();
 }
 
