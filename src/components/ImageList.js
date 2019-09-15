@@ -1,14 +1,16 @@
+import './ImageList.css'
 import React from "react";
+import ImageCard from './ImageCard';
+
 
 const ImageList = props => {
-  console.log(props);
   /* Destructuring image object to retrieve specific values without constantly referencing the object itself */
-  const images = props.images.map(({ description, id, urls }) => {
+  const images = props.images.map((image) => {
     /* key property must be added to the root JSX tag being returned by the map statement */
-    return <img key={id} src={urls.regular} alt={description} />;
+    return <ImageCard key={image.id} image={image} />
   });
 
-  return <div>{images}</div>;
+  return <div className="image-list">{images} </div>;
 };
 
 export default ImageList;
